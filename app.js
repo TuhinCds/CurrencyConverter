@@ -34,7 +34,8 @@ let convertTypes = [
 
 let fromX = ""
 let toX = ""
-
+fromIn.placeholder = convertTypes[0]
+toIn.placeholder = convertTypes[1]
 convertTypes.forEach(item => {
    let createOption = `<option value="${item}">${item}</option>`
 
@@ -48,12 +49,13 @@ convertTypes.forEach(item => {
 fromData.addEventListener("change", () => {
    let fromDataV = fromData.value
    let toDataV = toData.value
+   fromIn.value = fromDataV
 
-
-    
+    toIn.value = toDataV
    if (fromDataV === toDataV) {
       for(let i = 0; i < convertTypes.length; i++) {
          toDataV = convertTypes[i]
+         toIn.value = convertTypes[i]
          if (toDataV !== fromDataV) {
             toData.value = convertTypes[i]
             return
@@ -65,11 +67,12 @@ fromData.addEventListener("change", () => {
 toData.addEventListener("change", () => {
    let fromDataV = fromData.value
    let toDataV = toData.value
-
+   toIn.value = toData.value
    fromIn.placeholder = fromDataV
    if (toDataV === fromDataV) {
       for(let i = 0; i < convertTypes.length; i++) {
          fromDataV = convertTypes[i]
+         fromIn.value = convertTypes[i]
          if (fromDataV !== toDataV) {
             fromData.value = convertTypes[i]
             return
@@ -92,12 +95,24 @@ function Convert() {
    fromX = fromValue
    toX = toValue
 
-   CurrencyTo.innerHTML = "converting.."
+   CurrencyTo.innerHTML = `<i class="fa-solid fa-money-bill-transfer"></i> converting..`
+   CurrencyTo.classList.add("lodding")
    fetch(`https://v6.exchangerate-api.com/v6/74a905db1dc48561dcff5dc4/latest/${fromValue}`)
    .then(res => res.json())
-   .then(data => 
+   .then(data => {
+      CurrencyTo.classList.remove("lodding")
       CurrencyTo.innerHTML = (data.conversion_rates[toValue] * ammoutData).toFixed(2)
-   )
+})
+   .catch(err => {
+      
+      if ((err + "").includes("NetworkError")) {
+         CurrencyTo.innerHTML = `<i class="fa-solid fa-globe"></i>! Check internet`
+         CurrencyTo.style.fontWeight = "460"
+         CurrencyTo.style.fontSize = ".86rem"
+         CurrencyTo.style.padding = "6px 7px"
+      }
+   })
+   
    FromCurrency.innerHTML = ammoutData
    fromIn.value = fromValue
    toIn.value = toValue
@@ -147,7 +162,6 @@ function RandomChangeCurrencyData() {
 
    toData.value = convertTypes[toCount]
    fromData.value = convertTypes[fromCount]
-   console.log(toCount , fromCount)
 }
 
 
@@ -168,3 +182,79 @@ toIn.addEventListener("input", () => {
 function InputToWidth(input) {
    return (input.value.length + 1) === 1 ? "43px" : (input.value.length + 2 + "ch")
 }
+
+fromIn.addEventListener("input", () => {
+   const fromInValue = fromIn.value.toUpperCase()
+   fromIn.value = fromInValue
+
+   if (fromInValue.length === 3) {
+      for(let i = 0; i < convertTypes.length; i++) {
+         if (fromInValue === convertTypes[i]) {
+            fromData.value = convertTypes[i]
+         }
+      }
+   }
+   if (fromInValue === toIn.value) {
+      for (let y = 0; y < convertTypes.length; y++) {
+         toIn.value = convertTypes[y]
+         toData.value = convertTypes[y]
+         if (fromInValue !== toIn.value) {
+            return
+         }
+      }
+   }
+})
+toIn.addEventListener("input", () => {
+   let toInValue = toIn.value.toUpperCase()
+   toIn.value = toInValue
+   if (toInValue.length === 3) {
+      for(let i = 0; i < convertTypes.length; i++) {
+         if (toInValue === convertTypes[i]) {
+            toData.value = convertTypes[i]
+         }
+      }
+   }
+   if (fromIn.value === toInValue) {
+      for (let y = 0; y < convertTypes.length; y++) {
+         fromIn.value = convertTypes[y]
+         fromData.value = convertTypes[y]
+         if (toInValue !== fromIn.value) {
+            return
+         }
+      }
+   }
+})
+// FromCurrency.addEventListener("click", () => {
+//    document.body.addEventListener("keydown", (e) => {
+//       if (e.key.match(/[0-9]/)) {
+//          FromCurrency.textContent += e.key
+//       } else if (e.key === "Backspace") {
+//          FromCurrency.innerText = FromCurrency.textContent.slice(0, -1)
+//       }
+//       if (FromCurrency.innerText === "") {
+//          FromCurrency.innerText = "0"
+//       } else {
+//          if (FromCurrency.innerText.startsWith("0")) {
+//             FromCurrency.innerText = FromCurrency.innerText.slice(1)
+//          }
+//       }
+//       console.log(e.key)
+//    })
+// })
+// CurrencyTo.addEventListener("click", () => {
+//    document.body.addEventListener("keydown", (e) => {
+//       if (e.key.match(/[0-9]/)) {
+//          CurrencyTo.textContent += e.key
+//       } else if (e.key === "Backspace") {
+//          CurrencyTo.innerText = CurrencyTo.textContent.slice(0, -1)
+//       }
+//       if (CurrencyTo.innerText === "") {
+//          CurrencyTo.innerText = "00"
+//       } else {
+//          if (CurrencyTo.innerText.startsWith("00")) {
+//             CurrencyTo.innerText = CurrencyTo.innerText.slice(2)
+//          }
+//       }
+//       console.log(e.key)
+//    })
+// })

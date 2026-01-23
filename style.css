@@ -16,11 +16,11 @@ body {
     font-family: "Arial", sans-serif;
 }
 .container {
+    border: 1px solid rgba(255, 255, 255, 0.104);
     border-radius: 20px;
     padding: 15px;
     width: 90%;
     max-width: 430px;
-    border: 1px solid rgba(255, 255, 255, 0.073);
 }
 .container .head {
     margin-bottom: 15px;
@@ -262,4 +262,8 @@ body {
     background: transparent;
     color: white;
     font-size: .95rem;
+}
+#CurrencyTo.lodding {
+    font-size: .8rem;
+    padding: 6.7px 7px;
 }
