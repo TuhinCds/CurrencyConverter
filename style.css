@@ -1,0 +1,279 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #0a0a0a;
+    font-family: "Arial", sans-serif;
+}
+.container {
+    border: 1px solid rgba(255, 255, 255, 0.104);
+    border-radius: 20px;
+    padding: 15px;
+    width: 90%;
+    max-width: 430px;
+}
+.container .head {
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+    color: rgb(207, 207, 207);
+    text-align: center;
+}
+.body {
+    width: 100%;
+}
+.inputAccoumtContainer input {
+    width: 100%;
+    padding: 13px;
+    border-radius: 1000px;;
+    border: none;
+    color: rgba(255, 255, 255, 0.805);
+    background: rgba(255, 255, 255, 0.05);
+    outline: none;
+    transition: .4s;
+}
+.inputAccoumtContainer input:focus {
+    background: rgba(255, 255, 255, 0.124);
+    color: white;
+}
+.inputAccoumtContainer {
+    width: 100%;
+}
+.inputGroup {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.inputGroup .inputGroupWraper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 2.8px;
+    color: rgba(255, 255, 255, 0.648);
+}
+.inputGroupWraper select {
+    padding: 13px;
+    border-radius: 1000px;
+    border: none;
+    background: rgba(255, 255, 255, 0.095);
+    color: rgba(255, 255, 255, 0.693);
+}
+.rowSym1 {
+    height: .5px;
+    background: rgba(251, 251, 251, 0.079);
+    margin: 0 13px;
+    margin-top: 15px;
+}
+.inputGroup .inputGroupWraper select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 44px;
+  padding-right: 45px;
+  outline: none;
+  background-color: #ffffff0e;
+  background-image: url("image.png");
+  opacity: .7;
+  background-repeat: no-repeat;
+  background-size: 12px;
+  background-position: right 15px center;
+}
+
+.result {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 10px;
+    padding: 15px 15px;
+}
+.resultWraper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.header {
+    color: rgba(255, 255, 255, 0.871);
+    font-size: .7rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+.header .rightHead button{
+    background: transparent;
+    color: rgba(255, 255, 255, 0.804);
+    border: none;
+    font-size: .78rem;
+    cursor: pointer;
+    
+}
+#convartedData {
+    color: white;
+    font-weight: bold;
+}
+.rowSym2 {
+    margin: 7px 5px;
+    height: .8px;
+    background: rgba(255, 255, 255, 0.059);
+}
+.convertBtnContainer {
+    margin-top: 15px;
+    width: 100%;
+}
+.convertBtnContainer button#ConvertBtn {
+    padding: 13px;
+    width: 100%;
+    border-radius: 10px;
+    border: none;
+    background: rgba(253, 253, 253, 0.839);
+    font-size: .9rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+.head {
+    margin: 10px 0;
+    margin-bottom: 25px !important;
+}
+.InputSection {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+.inputAccoumtContainer input {
+    border-radius: 15px 15px 4px 4px;
+}
+.inputGroup .inputGroupWraper select {
+    border-radius: 4px 4px 15px 15px !important;
+}
+.symbol {
+    background: rgba(254, 254, 254, 0);
+    padding: 13px 10px;
+    border-radius: 4px;
+    border: none;
+    color: rgba(255, 255, 255, 0.791);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: color .3s;
+}
+.symbol:hover {
+    color: white;
+}
+.leftHead .arrow {
+    font-size: .56rem;
+}
+#convartedData {
+    display: flex;
+    align-items: center;
+    overflow-x: auto;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+    gap: 6px;
+}
+.fromData {
+    display: flex;
+    align-items: center;
+}
+.toData {
+    display: flex;
+    align-items: center;
+}
+.fromData input {
+    width: 43px;
+    max-width: 200px;
+    transition: width .3s;
+    border: none;
+    padding: 7px;
+    background: rgb(68, 68, 68);
+    outline: none;
+    color: rgb(248, 248, 248);
+}
+.toData input {
+    width: 43px;
+    max-width: 200px;
+    transition: width .3s;
+    border: none;
+    background: rgba(255, 255, 255, 0.147);
+    color: white;
+    padding: 7px;
+    outline: none;
+}
+.fromData {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+.toData {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+.fromData input:first-child {
+    border-radius: 6px 0 0 6px;
+}
+.fromData input:last-child {
+    border-radius: 0 6px 6px 0;
+}
+.toData input:first-child {
+    border-radius: 6px 0 0 6px;
+}
+.toData input:last-child {
+    border-radius: 0 6px 6px 0;
+}
+#FromCurrency {
+    border: 1px solid rgba(255, 255, 255, 0.142);
+    padding: 5px 6px;
+    border-radius: 0 5px 5px 0;
+    width: max-content;
+    max-width: 150px;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+#CurrencyTo {
+    padding: 5px 7px;
+    border-radius: 0 5px 5px 0;
+    border: 1px solid rgba(255, 255, 255, 0.142);
+    max-width: 150px;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+.OutputSection {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5px;
+}
+#DetailsBtn {
+    border: none;
+    border-radius: 4px;
+    background: transparent;
+    color: white;
+    font-size: .95rem;
+}
+#CurrencyTo.lodding {
+    font-size: .8rem;
+    padding: 6.7px 7px;
+}
+#randomChangeCurrency {
+    transition: transform .4s;
+}
+#randomChangeCurrency:hover{
+    transform: rotate(100deg);
+    
+}
+#randomChangeCurrency:active {
+    transform: rotate(210deg);
+}

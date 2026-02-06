@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="container">
+        <div class="head">Currency convarter <i class="fa-solid fa-baht-sign"></i></div>
+        <div class="body">
+            <div class="InputSection">
+                <div class="inputAccoumtContainer">
+                <input type="text" id="ammount"placeholder="Enter ammount...">
+            </div>
+            <div class="inputGroup">
+                <div class="inputGroupWraper">
+                    <select name="" id="From"></select>
+                    <button id="randomChangeCurrency" class="symbol"><i class="fa-solid fa-arrows-rotate"></i></button>
+                    <select name="" id="To"></select>
+                </div>
+            </div>
+            </div>
+            <div class="rowSym1"></div>
+        </div>
+        <div class="result">
+            <div class="resultWraper">
+                <div class="header">
+                    <div class="leftHead" id="ShowConvertType">
+                        CONVERT <span id="fromDataValueIn">BDT</span> <i class="fa-solid fa-arrow-trend-up"></i> <span id="toDataValueIn">USD</span>
+                    </div>
+                    <div class="rightHead">
+                        <button id="ChangeBtn"><i class="fa-solid fa-arrow-right-arrow-left arrow"></i></button>
+                    </div>
+                </div>
+                <div class="rowSym2"></div>
+                <div class="OutputSection">
+                    <div id="convartedData">
+                    <div class="fromData">
+                        <input type="text" value="BDT" id="fromIn" maxlength="3">
+                        <div id="FromCurrency">0</div>
+                    </div>
+                    <div class="symbol2">
+                        <i class="fa-solid fa-angles-right"></i>
+                    </div>
+                    <div class="toData">
+                        <input type="text" value="USD" id="toIn" maxlength="3">
+                        <div id="CurrencyTo">00</div>
+                    </div>
+                    
+                </div>
+                <div class="detailsCon">
+                    <button id="DetailsBtn"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                </div>
+                </div>
+            </div>
+        </div>
+        <div class="convertBtnContainer">
+            <button id="ConvertBtn"><i class="fa-solid fa-arrows-rotate"></i> Convert BDT to US</button>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
